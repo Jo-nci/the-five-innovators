@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stronger for the Next 30 Years | Healthspan Mechanics</title>
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="Stronger for the Next 30 Years | Healthspan Mechanics">
+  <meta property="og:description" content="An 8-week evidence-based barbell foundation with baseline DEXA body composition scanning, designed for adults 50+.">
+  <meta property="og:type" content="website">
+  <!-- <meta property="og:image" content="https://example.com/og-image.jpg"> -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stronger for the Next 30 Years | Healthspan Mechanics">
+  <meta name="twitter:description" content="Master joint safety, build lean muscle and quantify your progress with expert-guided barbell strength.">
+
+  <!-- Favicon Emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️</text></svg>">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg: #020a18;
+      --bg-grad: linear-gradient(170deg, #020a18, #041028 40%, #06142e 70%, #020a18);
+      --surface: rgba(8, 24, 56, 0.85);
+      --surface-card: rgba(12, 34, 76, 0.6);
+      --border: rgba(0, 170, 255, 0.12);
+      --border-bright: rgba(0, 170, 255, 0.3);
+      --text: #d0e0f0;
+      --text-bright: #e8f0ff;
+      --text-dim: #6888aa;
+      --neon: #00aaff;
+      --cyan: #00e5ff;
+      --green: #00ff88;
+      --amber: #ffaa00;
+      --glass-header: rgba(2, 10, 24, 0.85);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    html.light {
+      --bg: #f4f8fc;
+      --bg-grad: linear-gradient(170deg, #f4f8fc, #e6f0fa 40%, #daf0ff 70%, #f4f8fc);
+      --surface: rgba(255, 255, 255, 0.9);
+      --surface-card: rgba(240, 246, 255, 0.85);
+      --border: rgba(0, 120, 212, 0.18);
+      --border-bright: rgba(0, 120, 212, 0.4);
+      --text: #2c3e50;
+      --text-bright: #0f172a;
+      --text-dim: #5a6e85;
+      --neon: #0077dd;
+      --cyan: #0099cc;
+      --green: #00a859;
+      --amber: #d97706;
+      --glass-header: rgba(244, 248, 252, 0.88);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-grad);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Subtle background grid */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(to right, var(--border) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb-1 {
+      width: 450px;
+      height: 450px;
+      background: var(--neon);
+      top: 15%;
+      left: max(10px, calc(50% - 750px));
+      animation: floatOrbit1 22s infinite ease-in-out alternate;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: var(--cyan);
+      bottom: 20%;
+      right: max(10px, calc(50% - 780px));
+      animation: floatOrbit2 28s infinite ease-in-out alternate;
+    }
+
+    @keyframes floatOrbit1 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-40px, 60px) scale(1.1); }
+      100% { transform: translate(30px, -50px) scale(0.95); }
+    }
+
+    @keyframes floatOrbit2 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, -40px) scale(1.08); }
+      100% { transform: translate(-30px, 70px) scale(0.92); }
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--glass-header);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text-bright);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-tag {
+      font-size: 0.72rem;
+      background: rgba(0, 170, 255, 0.15);
+      color: var(--neon);
+      padding: 3px 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .theme-toggle {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--neon);
+      transform: translateY(-1px);
+    }
+
+    h1, h2, h3 {
+      color: var(--text-bright);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .tagline-badge {
+      display: inline-block;
+      background: rgba(0, 229, 255, 0.1);
+      color: var(--cyan);
+      border: 1px solid var(--border-bright);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--neon), var(--cyan));
+      color: #020a18;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 170, 255, 0.35);
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 229, 255, 0.5);
+    }
+
+    .section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 64px;
+      text-align: center;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .reason-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .reason-num {
+      color: var(--neon);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 22px;
+      align-items: center;
+    }
+
+    .time-badge {
+      background: rgba(0, 170, 255, 0.15);
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      min-width: 85px;
+      text-align: center;
+    }
+
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    blockquote {
+      background: var(--surface-card);
+      border-left: 4px solid var(--neon);
+      padding: 22px;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: var(--text-bright);
+    }
+
+    blockquote footer {
+      margin-top: 12px;
+      font-style: normal;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .faq-item {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .faq-a {
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .qualifier-section {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 64px 0;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .quiz-progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .progress-bar-bg {
+      flex-grow: 1;
+      height: 6px;
+      background: var(--surface-card);
+      border-radius: 3px;
+      margin: 0 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 20%;
+      background: linear-gradient(90deg, var(--neon), var(--cyan));
+      transition: width 0.3s ease;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      color: var(--text-bright);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .option-btn:hover {
+      border-color: var(--neon);
+      background: rgba(0, 170, 255, 0.08);
+      transform: translateX(4px);
+    }
+
+    .tier-result-card {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .tier-badge {
+      display: inline-block;
+      background: rgba(0, 255, 136, 0.15);
+      color: var(--green);
+      border: 1px solid var(--green);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(2, 10, 24, 0.8);
+      backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .qualifier-section {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <header>
+    <div class="container header-content">
+      <div class="brand">
+        🏋️ HEALTHSPAN MECHANICS <span class="brand-tag">Ages 50+</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <span id="themeIcon">🌙</span> <span id="themeLabel">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero section">
+      <span class="tagline-badge">Healthspan Mechanics</span>
+      <h1>Stronger for the Next 30 Years.</h1>
+      <p class="hero-sub">An 8-week evidence-based barbell foundation with baseline DEXA body composition scanning, designed for adults 50+.</p>
+      <a href="#qualifier" class="btn">Find Your Starting Block →</a>
+    </section>
+
+    <section class="section">
+      <h2>Three Reasons This Is For You</h2>
+      <div class="grid-3">
+        <div class="reason-card">
+          <span class="reason-num">Reason 01</span>
+          <h3>Precision Osteogenic Loading</h3>
+          <p>Walking and cardio build endurance, but progressive barbell resistance is clinically required to stimulate bone mineral density and reverse sarcopenia.</p>
+        </div>
+        <div class="reason-card">
+          <span class="reason-num">Reason 02</span>
+          <h3>Expert-Led Small Groups</h3>
+          <p>Maximum 6 participants per coach ensures complete form safety and zero weight-room intimidation.</p>
+        </div>
+        <div class="reason-card">
+          <span class="reason-num">Reason 03</span>
+          <h3>Objective Diagnostic Tracking</h3>
+          <p>Dual baseline and week-8 DEXA scans quantify your exact gain in lean muscle mass and bone tissue.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>A Guided 60-Minute Session</h2>
+      <p style="text-align: center; color: var(--text-dim); margin-bottom: 24px;">What attending or using this actually looks like</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="time-badge">0–15m</span>
+          <div>
+            <strong style="color: var(--text-bright);">Dynamic Mobility & Joint Preparation</strong>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim);">Targeted hip, shoulder and ankle warm-ups to prepare joints safely for load.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-badge">15–40m</span>
+          <div>
+            <strong style="color: var(--text-bright);">Barbell Mechanics</strong>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim);">Squat, hinge and press patterns adapted precisely to individual leverage and range of motion.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-badge">40–50m</span>
+          <div>
+            <strong style="color: var(--text-bright);">Functional Carries & Core Loading</strong>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim);">Loaded carries and trunk stabilization to build real-world capacity for luggage, groceries and daily life.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-badge">50–60m</span>
+          <div>
+            <strong style="color: var(--text-bright);">Cool-Down & Progress Logging</strong>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim);">Guided recovery stretch and updating your individual strength and metrics ledger.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What Active Adults Are Saying</h2>
+      <div class="quotes-grid">
+        <blockquote>
+          "I want to stay strong as I age, but stepping into the free weights section at 58 feels completely intimidating. I’m terrified of blowing out my back because nobody is watching my form."
+          <footer>— Healthspan Community Discussion</footer>
+        </blockquote>
+        <blockquote>
+          "I noticed I was struggling to lift my carry-on bag into the overhead bin and get off the floor easily when playing with my grandkids. That was my wake-up call that cardio alone isn't enough."
+          <footer>— Active 50+ Participant</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Q: Isn't barbell lifting dangerous for joint health or over-50s?</div>
+          <div class="faq-a">A: Unsupervised lifting is risky. Supervised, progressive barbell loading guided by longevity-trained coaches is the safest, most effective way to strengthen joints and surrounding muscle.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q: What if I have never touched a barbell before in my life?</div>
+          <div class="faq-a">A: Perfect. This course is explicitly designed for beginners, starting with unweighted wooden dowels or light technique bars to master mechanics.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q: How does the DEXA scan work?</div>
+          <div class="faq-a">A: You receive a non-invasive, 6-minute body composition scan at week 1 and week 8, giving you precise medical-grade data on bone density, muscle mass and fat distribution.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q: Can I join if I have existing osteopenia or minor joint stiffness?</div>
+          <div class="faq-a">A: Yes. All movements are regressed or modified to suit individual mobility limitations.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="qualifier" class="qualifier-section">
+      <div id="quizContainer">
+        <h2 style="text-align: left; margin-bottom: 8px;">Find Your Starting Block</h2>
+        <p style="color: var(--text-dim); margin-bottom: 24px;">Answer 5 quick questions to match with your optimal longevity cohort.</p>
+
+        <div class="quiz-progress">
+          <span id="questionStep">Question 1 of 5</span>
+          <div class="progress-bar-bg">
+            <div id="progressFill" class="progress-bar-fill"></div>
+          </div>
+          <span id="scoreTracker">Score: 0</span>
+        </div>
+
+        <div id="questionBox">
+          <h3 id="questionText" style="font-size: 1.15rem; margin-bottom: 20px;">Question loading...</h3>
+          <div id="optionsContainer"></div>
+        </div>
+      </div>
+
+      <div id="resultContainer" style="display: none;" class="tier-result-card">
+        <span class="tier-badge" id="resultTierBadge">Recommended Tier</span>
+        <h2 id="resultTitle" style="margin-bottom: 16px;">Your Recommended Entry Point</h2>
+        <p id="resultCopy" style="max-width: 600px; margin: 0 auto 28px; font-size: 1.05rem; color: var(--text-bright);"></p>
+        <button id="resultCta" class="btn" onclick="openModal()">Reserve Your Spot</button>
+        <div style="margin-top: 20px;">
+          <button onclick="resetQuiz()" style="background: none; border: none; color: var(--text-dim); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">← Retake Qualifier</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal Component for Reservation CTA -->
+  <div id="ctaModal" class="modal-overlay">
+    <div class="modal-card">
+      <h3 style="margin-bottom: 12px; color: var(--text-bright);">Reservation Received</h3>
+      <p style="color: var(--text-dim); margin-bottom: 24px; font-size: 0.95rem;">Thank you for reserving your spot in the Healthspan Mechanics programme. Our coaching team will reach out within 24 hours to schedule your baseline DEXA scan.</p>
+      <button class="btn" style="width: 100%;" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Healthspan Mechanics | Longevity Strength Programme. Evidence-Based Strength and Healthspan Science for Adults 50+.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(isLight) {
+      if (isLight) {
+        themeIcon.textContent = '☀️';
+        themeLabel.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeLabel.textContent = 'Dark';
+      }
+    }
+
+    updateThemeUI(document.documentElement.classList.contains('light'));
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      updateThemeUI(isLight);
+    });
+
+    // Modal Control Logic
+    function openModal() {
+      document.getElementById('ctaModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('ctaModal').style.display = 'none';
+    }
+
+    // Qualifier Questions Data
+    const quizData = [
+      {
+        question: "1. What is your experience with free-weight barbell training?",
+        options: [
+          { text: "A) Complete beginner / never touched a barbell.", points: 1 },
+          { text: "B) Some past experience with dumbbells/machines, but new to barbells.", points: 2 },
+          { text: "C) Experienced with strength training, returning after a break or seeking longevity-focused coaching.", points: 3 }
+        ]
+      },
+      {
+        question: "2. What is your primary healthspan objective for the next 12 months?",
+        options: [
+          { text: "A) Building confidence, improving posture and preventing falls.", points: 1 },
+          { text: "B) Building muscle mass, protecting bone density and improving daily energy.", points: 2 },
+          { text: "C) Pushing athletic longevity, lifting heavier safely and mastering compound lifts.", points: 3 }
+        ]
+      },
+      {
+        question: "3. What level of hands-on coaching guidance do you prefer?",
+        options: [
+          { text: "A) Direct 1-on-1 step-by-step supervision and slower-paced movement.", points: 1 },
+          { text: "B) Structured small-group environment (max 6 people) with dedicated form checks.", points: 2 },
+          { text: "C) High autonomy with expert program design and progress check-ins.", points: 3 }
+        ]
+      },
+      {
+        question: "4. How active are you currently on a weekly basis?",
+        options: [
+          { text: "A) Sedentary to light walking / yoga / Pilates.", points: 1 },
+          { text: "B) Regular cardio, tennis or group fitness 2–3 times a week.", points: 2 },
+          { text: "C) Consistent strength or athletic training 3+ times a week.", points: 3 }
+        ]
+      },
+      {
+        question: "5. How important is baseline tracking (DEXA scan) to you?",
+        options: [
+          { text: "A) I need guidance understanding what DEXA metrics mean for my body.", points: 1 },
+          { text: "B) I want clear, measurable baseline and post-program muscle/bone proof.", points: 2 },
+          { text: "C) I already track body metrics and want targeted strength data.", points: 3 }
+        ]
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let totalScore = 0;
+
+    function renderQuestion() {
+      const q = quizData[currentQuestionIndex];
+      document.getElementById('questionStep').textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+      document.getElementById('progressFill').style.width = `${((currentQuestionIndex + 1) / quizData.length) * 100}%`;
+      document.getElementById('scoreTracker').textContent = `Score: ${totalScore}`;
+      document.getElementById('questionText').textContent = q.question;
+
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `<span>${opt.text}</span> <span style="color: var(--neon);">→</span>`;
+        btn.onclick = () => handleAnswer(opt.points);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(points) {
+      totalScore += points;
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < quizData.length) {
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById('quizContainer').style.display = 'none';
+      const resultContainer = document.getElementById('resultContainer');
+      resultContainer.style.display = 'block';
+
+      const badge = document.getElementById('resultTierBadge');
+      const title = document.getElementById('resultTitle');
+      const copy = document.getElementById('resultCopy');
+      const cta = document.getElementById('resultCta');
+
+      if (totalScore <= 8) {
+        badge.textContent = "Tier 1 Result";
+        title.textContent = "Foundation & Confidence Entry";
+        copy.textContent = "You are starting fresh. We prioritize movement mechanics, joint preparation and zero-pressure barbell onboarding alongside your baseline DEXA scan.";
+        cta.textContent = "Reserve Foundation Spot (€399 / 8 Weeks)";
+      } else if (totalScore <= 12) {
+        badge.textContent = "Tier 2 Result";
+        title.textContent = "Core Longevity & Strength Entry";
+        copy.textContent = "You have an active foundation and are ready to apply progressive mechanical tension to build lean muscle and protect bone mineral density in a small-group setting.";
+        cta.textContent = "Join Core Longevity Cohort (€499 / 8 Weeks)";
+      } else {
+        badge.textContent = "Tier 3 Result";
+        title.textContent = "Advanced Healthspan Performance Entry";
+        copy.textContent = "You understand longevity principles and want high-intensity progressive overload, heavy compound form refinement and full DEXA tracking.";
+        cta.textContent = "Apply for Performance Tier (€599 / 8 Weeks)";
+      }
+    }
+
+    function resetQuiz() {
+      currentQuestionIndex = 0;
+      totalScore = 0;
+      document.getElementById('resultContainer').style.display = 'none';
+      document.getElementById('quizContainer').style.display = 'block';
+      renderQuestion();
+    }
+
+    // Initialize Quiz on Load
+    renderQuestion();
+  </script>
+</body>
+</html>
